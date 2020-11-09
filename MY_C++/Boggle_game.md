@@ -47,17 +47,21 @@
 완전 탐색기법중 메모리 관리가 뛰어난 재귀함수를 이용해 각각의 스펠링 별로 문제에 접근하는 방식을 사용한다.
 
 1) 처음 X와 Y부분의 인덱스가 접근할 부분을 먼저 선언해준다.
+
 '''
 	int dx[8] = { -1,-1,-1,1,1,1,0,0 };
 	int dy[8] = { -1,0,1,-1,0,1,-1,-1 };
+
 '''
 2)기저 사례를 분석한다.
+
 '''
 	if (x<0 || y<0) return false;//기저 사례 1: 시작 위치가 범위 밖이면 실패.
 	if (borard[y][x] != word[0]) return false;//기저 사례 2: 첫 글자가 일치하지 않으면 실패
 	if (word.size() == 1) return true;//기저 사례 3: 글자의 크기가 1이면 무조건 성공
 '''
 3)인접한 8칸의 위치를 파악한다.
+
 '''
 	for (int direction = 0; direction < 8; direction++) {
 		int nextY = y + dy[direction], nextX = x + dx[direction];
@@ -69,6 +73,7 @@
 '''
 
 ###전체 코드
+
 '''
 #include <iostream>
 #include <vector>
