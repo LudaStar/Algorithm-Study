@@ -69,7 +69,7 @@
 	return false;//전체가 없다면 false를 반환
 ```
 
-###전체 코드
+### 전체 코드
 
 ```
 #include <iostream>
