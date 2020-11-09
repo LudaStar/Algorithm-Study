@@ -40,3 +40,109 @@
 	KARA NO
 	PANDORA NO
 	GIAZAPX YES
+
+### 문제 접근방식
+이 문제는 각 스펠링이 게임판의 모든 위치에 있어야 하므로 완전 탐색 기법을 사용해야 한다.
+
+완전 탐색기법중 메모리 관리가 뛰어난 재귀함수를 이용해 각각의 스펠링 별로 문제에 접근하는 방식을 사용한다.
+
+1) 처음 X와 Y부분의 인덱스가 접근할 부분을 먼저 선언해준다.
+'''
+	int dx[8] = { -1,-1,-1,1,1,1,0,0 };
+	int dy[8] = { -1,0,1,-1,0,1,-1,-1 };
+'''
+2)기저 사례를 분석한다.
+'''
+	if (x<0 || y<0) return false;//기저 사례 1: 시작 위치가 범위 밖이면 실패.
+	if (borard[y][x] != word[0]) return false;//기저 사례 2: 첫 글자가 일치하지 않으면 실패
+	if (word.size() == 1) return true;//기저 사례 3: 글자의 크기가 1이면 무조건 성공
+'''
+3)인접한 8칸의 위치를 파악한다.
+'''
+	for (int direction = 0; direction < 8; direction++) {
+		int nextY = y + dy[direction], nextX = x + dx[direction];
+
+		if (hasWord(word.substr(1), nextY, nextX))//이 부분에서 재귀가 들어감.
+			return true;
+	}
+	return false;//전체가 없다면 false를 반환
+'''
+
+###전체 코드
+'''
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+int dx[8] = { -1,-1,-1,1,1,1,0,0 };
+int dy[8] = { -1,0,1,-1,0,1,-1,1 };
+
+char board[5][5];
+
+using namespace std;
+
+bool hasWord(const string& word, int y, int x) {
+	if (x<0 || y<0) return false;
+	if (board[y][x] != word[0]) return false;
+	if (word.size() == 1) return true;
+	for (int direction = 0; direction < 8; direction++) {
+		int nextY = y + dy[direction], nextX = x + dx[direction];
+
+		if (hasWord(word.substr(1), nextY, nextX))
+			return true;
+	}
+	return false;
+}
+
+int main() {
+	int c = 0;
+	int N = 0;
+
+	bool isFound = false;
+	char (*out)[10];
+	cin >> c;
+	while (c > 0)
+	{
+		for (size_t i = 0; i < 5; i++)
+		{
+			for (size_t j = 0; j < 5; j++) {
+				cin >> board[i][j];//보드판 입력
+			}
+		}
+		cin >> N;
+		out = new char[N][10];
+		for (size_t i = 0; i < N; i++)
+		{
+			cin >> out[i];//검사할 글자 입력
+		}
+		for (size_t i = 0; i < N; i++) {
+			for (size_t j = 0; j < 5; j++) {
+				for (size_t k = 0; k < 5; k++)
+				{
+					if (hasWord(out[i], j, k))
+					{
+						isFound = true;//찾았다면 
+						break;//멈춤
+					}
+					else {
+						isFound = false;//못찾으면 False
+					}
+				}
+				if (isFound) {
+					string str = out[i];
+					cout << str << "  YES" << endl;
+					break;
+				}
+			}
+			if (isFound) {
+				continue;
+			}
+			string str = out[i];
+			cout << str << "  NO" << endl;
+		}
+		c--;
+	}
+	return 0;
+}
+'''
