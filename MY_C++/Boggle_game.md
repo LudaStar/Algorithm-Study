@@ -19,8 +19,6 @@
 각 테스트 케이스마다 N줄을 출력합니다. 각 줄에는 알고 있는 단어를 입력에 주어진 순서대로 출력하고, 해당 단어를 찾을 수 있을 경우 YES, 아닐 경우 NO를 출력합니다.
 
 ### 예제 입력
-
-this is normal paragraph:
 	1
 	URLPM
 	XPRET
@@ -35,7 +33,6 @@ this is normal paragraph:
 	PANDORA
 	GIAZAPX
 
-end code block.
 ### 예제 출력
 
 '''
