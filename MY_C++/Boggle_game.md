@@ -1,4 +1,4 @@
-##Boggle Game
+## Boggle Game
 
 ### 1. 문제
 
@@ -20,22 +20,22 @@
 
 ### 예제 입력
 
-'''
-1
-URLPM
-XPRET
-GIAET
-XTNZY
-XOQRS
-6
-PRETTY
-GIRL
-REPEAT
-KARA
-PANDORA
-GIAZAPX
+this is normal paragraph:
+	1
+	URLPM
+	XPRET
+	GIAET
+	XTNZY
+	XOQRS
+	6
+	PRETTY
+	GIRL
+	REPEAT
+	KARA
+	PANDORA
+	GIAZAPX
 
-'''
+end code block.
 ### 예제 출력
 
 '''
