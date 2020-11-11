@@ -123,3 +123,6 @@ public class MeetingRooms {
 	
 }
 ```
+
+### 5. Complexity
+Arrays.sort() 의 time complexity : O(n logn n), space complexity : O(1)
