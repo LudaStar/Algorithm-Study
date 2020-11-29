@@ -1,7 +1,7 @@
 ## Jewels and Stones
 
 ### 1. 문제
-<img src = "https://user-images.githubusercontent.com/68332512/100534942-c5fa7080-3257-11eb-86f4-1dd3b2347801.PNG" width = "350" height = "200">
+<img src = "https://user-images.githubusercontent.com/68332512/100534942-c5fa7080-3257-11eb-86f4-1dd3b2347801.PNG" width = "350" height = "300">
 
 String 형식으로 Jewel과 Stone이 주어질 경우 stone에 jewel을 얼마나 포함하고 있는지 구하면 됩니다.
 Jewel이 "aA"이고 Stone이 "aAAbbbb"라면 jewel은 a와 A로 총 2개이고, stone에 jewel은 3개가 있는 것 입니다. 
