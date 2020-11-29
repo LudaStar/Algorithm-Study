@@ -30,8 +30,7 @@ package StringNArray;
 public class LicenseKeyFormatting {
 
 	public static void main(String[] args) {
-		String S = "5F3Z-2e-9-w";
-//  String S = "2-5g-3-J";
+		String S = "5F3Z-2e-9-w";  //  String S = "2-5g-3-J";
 		int k = 4;
 		System.out.println(solve(S, k));
 	}
