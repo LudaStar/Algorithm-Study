@@ -1,7 +1,8 @@
 ## LicenseKeyFormatting
 
 ### 1. 문제
-<img src = "https://user-images.githubusercontent.com/68332512/100534866-10c7b880-3257-11eb-8e3e-c8ae64df4666.PNG" width = "400" height = "350">
+<img src = "https://user-images.githubusercontent.com/68332512/100534866-10c7b880-3257-11eb-8e3e-c8ae64df4666.PNG" width = "400" height = "350"><img src = "https://user-images.githubusercontent.com/68332512/100534891-508ea000-3257-11eb-9cbc-717aeff63223.PNG" width = "400" height = "350">
+
 
 주어지는 문자열에서 하이픈을 모두 제거하고, 뒤에서 k만큼 떨어진 곳 모두에 하이픈을 넣습니다. <br>
 이때 알파벳은 모두 대문자여야 합니다.
