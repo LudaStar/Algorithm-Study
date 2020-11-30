@@ -45,72 +45,72 @@ list<int> it2(it);		//list it을 it2에 복사합니다.
 
 ## list의 멤버함수
 
-* it.assign(3,4)
-	*4로 초기화된 3개의 원소를 할당한다.
+*  it.assign(3,4)
+	*  4로 초기화된 3개의 원소를 할당한다.
 
-* it.front()
-	*맨 앞의 원소 값을 반환
+*  it.front()
+	*  맨 앞의 원소 값을 반환
 
-* it.back()
-	*맨 뒤의 원소를 반환
+*  it.back()
+	* 맨 뒤의 원소를 반환
 
-* it.begin()
-	*맨 앞의 원소를 가리키는 iterator를 반환
+*  it.begin()
+	* 맨 앞의 원소를 가리키는 iterator를 반환
 
-*it.end()
-	*맨 뒤의 원소를 가리키는 iterator를 반환
+*  it.end()
+	* 맨 뒤의 원소를 가리키는 iterator를 반환
 
-*it.rbegin()
-	*뒤에서부터 원소를 순차적으로 접근할때 사용
+* it.rbegin()
+	* 뒤에서부터 원소를 순차적으로 접근할때 사용
 
-*it.push_back(k)
-	*뒤쪽으로 원소  k를 삽입
+* it.push_back(k)
+	* 뒤쪽으로 원소  k를 삽입
 
-*it.pop_back()
-	*맨뒤의 원소를 제거
+* it.pop_back()
+	* 맨뒤의 원소를 제거
 
-*it.push_front(k)
-	*앞쪽으로 원소 k를 삽입
+* it.push_front(k)
+	* 앞쪽으로 원소 k를 삽입
 
-*it.pop_front(k)
-	*앞쪽의 원소를 제거
+* it.pop_front(k)
+	* 앞쪽의 원소를 제거
 
-*it.insert(iter,k)
-	*iter가 가르키는 위치에서 원소 k를 삽입
-	*삽입한 원소를 가리키는 iterator를 반환한다.
+* it.insert(iter,k)
+	* iter가 가르키는 위치에서 원소 k를 삽입
+	* 삽입한 원소를 가리키는 iterator를 반환한다.
 
-*it.erase(iter)
-	*iter가 가르키는 위치의 값을 제거
-	*삭제한 원소의 다음 원소를 가리키는 iterator를 반환
+* it.erase(iter)
+	* iter가 가르키는 위치의 값을 제거
+	* 삭제한 원소의 다음 원소를 가리키는 iterator를 반환
 
-*it.size()
-	*원소의 갯수
+* it.size()
+	* 원소의 갯수
 
-*it.remove(k)
-	*k와 같은 원소를 모두 제거
+* it.remove(k)
+	* k와 같은 원소를 모두 제거
 
-*it.remove_if(Predicate)
-	*단항 조건자 predicate에 해당하는 원소를 모두 제거
+* it.remove_if(Predicate)
+	* 단항 조건자 predicate에 해당하는 원소를 모두 제거
 
-*it.reverse()
-	*원소들의 순차열을 뒤집는다.
+* it.reverse()
+	* 원소들의 순차열을 뒤집는다.
 
-*it.sort()
-	*모든 원소를 default(오름차순)
-	*sort의 파라미터로 이항조건자가 올 수 있습니다. 그때는 이항조건자의 기준으로 정렬
+* it.sort()
+	* 모든 원소를 default(오름차순)
+	* sort의 파라미터로 이항조건자가 올 수 있습니다. 그때는 이항조건자의 기준으로 정렬
 
-* it2.swap(it)
-	*it2와 it을 swap합니다.
+*  it2.swap(it)
+	* it2와 it을 swap합니다.
 
-* it2.splice(iter2,it1)
-	*it2에서 iter2이 가리키는 곳에 it1의 모든 원소를 잘라 붙입니다.
-	*it2.splice(iter2,it1,iter1) : it2의 iter2가 가리키는 곳에 it1의 iter1이 가리키는 원소를 잘라 붙입니다.
-	*it2.splice(iter2,it1,iter1_1,iter1_2) : it2의 iter2가 가리키는 곳에서 it1의(iter1_1,iter1_2)까지의 원소를 잘라 붙입니다.
-	*[start,end] 까지는 start보다는 크거나 같고, end보다는 작은 원소를 뜻합니다.
+*  it2.splice(iter2,it1)
+	* it2에서 iter2이 가리키는 곳에 it1의 모든 원소를 잘라 붙입니다.
+	* it2.splice(iter2,it1,iter1) : it2의 iter2가 가리키는 곳에 it1의 iter1이 가리키는 원소를 잘라 붙입니다.
+	* it2.splice(iter2,it1,iter1_1,iter1_2) : it2의 iter2가 가리키는 곳에서 it1의(iter1_1,iter1_2)까지의 원소를 잘라 붙입니다.
+	* [start,end] 까지는 start보다는 크거나 같고, end보다는 작은 원소를 뜻합니다.
 
-* it.unique()
-	*인접한(양옆의) 원소가 같으면 유일하게 만듭니다(하나빼고 삭제)
+*  it.unique()
+	* 인접한(양옆의) 원소가 같으면 유일하게 만듭니다(하나빼고 삭제)
 
-* it2.merge(it1)
-	*it1을 it2내부로 합병 정렬합니다. 기준은 오름차순입니다.
-	*두번째 파라미터로 이항 조건자가 올 수 있습니다. 그때는 그 기준으로 정렬합니다.
+*  it2.merge(it1)
+	* it1을 it2내부로 합병 정렬합니다. 기준은 오름차순입니다.
+	* 두번째 파라미터로 이항 조건자가 올 수 있습니다. 그때는 그 기준으로 정렬합니다.
