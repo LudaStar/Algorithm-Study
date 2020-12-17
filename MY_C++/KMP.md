@@ -81,6 +81,100 @@ vector<int> kmpSearch(const string& H, const string& N) {
 이렇듯 kmp알고리즘을 책을 통해 구현해 보았다. 이 알고리즘자체는 이론은 매우 단순했다. 문자열 안에 반복되는 문자열이 있거나 일치하는 문자열이 있으면 검색이 빠르다는 것이다. 하지만 단순한 이론안에 복잡한 계산식이 들어가면서 이해가 매우 힘들었던 상황이었다.
 
 
+### kmp를 이용한 예제
+
+긴 문자열 S가 주어질 때 이 문자열의 접미사도 되고 접두사도 되는 문자열들의 길이를 전부 출력하는 문제이다.
+
+예를 들어, S = "ababbaba"라고 하면 a와 aba는 이 문자열의 접미사도 되고 접두사도 된다. 이 갯수를 찾는 알고리즘을 구현하라
+
+### 문제 풀이
+
+이 문제는 간단하다 위에 구현한 KMP알고리즘에서 접미사를 찾는 getPattermatch에서 가져온 pattern을 넣어주면 끝이다.
+
+### 코드
+```
+vector<int> getPreifxSuffix(const string& s) {
+	vector<int> ret, pi = getPartialMatch(s);
+	int k = s.size();//k의 전체는 무조건 접두사 및 접미사이다.
+	while (k>0)
+	{
+		//k-1은 답이다.
+		ret.push_back(k);
+		k = pi[k - 1];
+	}
+	return ret;
+}
+```
+
+### 예제 펠린드롬 만들기 
+
+앞에서 읽었을 때와 뒤로부터 읽었을 때 똑같은 문자열을 팰린드롬 문자열 이라고 합니다. 이 문제를 풀어보시오
+
+### 문제 풀이 
+
+이 문제는 주어진 문자열을 뒤집어서 붙인다 라고 생각하면 편하다. 앞뒤로 똑같아야 한다면 같은 문자열을 뒤집었을 때 가장 긴 랠린드롬 문자열을 만들 수 있기 때문이다.
+그럼 어떻게 문제를 만들어가면 될까
+
+그건 바로 주어진 문자열의  뒤집어진 문자열을 kmp알고리즘으로 찾아내면 되는 것이다. 뒤집어 졌을때 접두사가 원형의 접미사가될 때 이 문제는 간단하게 해결된다
+
+### 코드
+
+```
+int maxOverlap(const string& a, const string& b) {
+	int n = a.size(), m = b.size();
+	vector<int> pi = getPartialMatch(b);
+
+	int begin = 0, matched = 0;
+	while (begin < n) {//0번째 즉 맨 뒷 문자열과 비교 kmp의 변형 알고리즘
+		if (matched < m && a[begin + matched] == b[matched]) 
+		{
+			++matched;
+			if (begin + matched == n)
+				return matched;
+		}
+		else
+		{
+			if (matched == 0) {
+				++begin;
+			}
+			else {
+				begin += matched - pi[matched - 1];
+				matched = pi[matched - 1];
+			}
+		}
+	}
+	return 0;
+}
+
+```
+### 전통적인 방법으로 구현한 kmp알고리즘
+```
+
+vector<int> kmpSerch2(const string& H, const string& N) {
+	int n = H.size(), m = N.size();
+	vector<int> ret;
+	vector<int> pi = getPartialMatch(N);
+	int matched = 0;
+	for (int i = 0; i < n; ++i) {
+		while (matched > 0 && H[i] != N[matched])
+		{
+			matched = pi[matched - 1];
+			if (H[i] == N[matched]) {
+				matched++;
+				if (matched == n) {
+					ret.push_back(i - m + 1);
+					matched = pi[matched - 1];
+				}
+			}
+
+		}
+	}
+	return ret;
+}
+```
+
+이 부분은 한번 확인해보면 좋을 듯하다. 이해하기는 어려운 코드지만 직관적으로 볼 수 있기 때문에 코드를 보기에는 편한 방식이다.
+
 ### 마치며
 
 이 코드는 자주 사용될거 같은 생각에 따로 정리해두고 추후에 계속해서 사용하고 이해하려 노력해 내꺼로 만들어야 될 코드중 하나이다.
