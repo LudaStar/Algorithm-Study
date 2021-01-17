@@ -12,7 +12,7 @@
 
 	1. vector : 동적 배열
 	2. array : 배열
-	3. list : 양방향 리스트
+	3.  list : 양방향 리스트
 	4. forward_list : 단방향 리스트
 	5. deque : 양방향 큐
 
